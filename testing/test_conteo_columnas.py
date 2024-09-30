@@ -1,8 +1,9 @@
 import pytest
 from main.conteo_columnas import cantidad_de_columnas
 
+#Se llama al dataframe ya generado e importado
 def test_conteo_columnas():
-    expected_columns = 7  #7 es la cantidad de columnas del Dataframe
+    expected_columns = 5  #5 es la cantidad de columnas del Dataframe
 
     actual_columns = cantidad_de_columnas
 

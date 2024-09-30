@@ -3,6 +3,7 @@ import requests
 from unittest.mock import patch
 from main.get_data_api import get_data
 
+#Se definene y nombran las funciones
 def test_conexión_200():
     #Conexión exitosa
     with patch('requests.get') as mock_get:
