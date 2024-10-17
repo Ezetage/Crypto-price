@@ -1,11 +1,10 @@
 import pytest
-import requests
 from unittest.mock import patch
-from main.get_data_api import get_data
+from extract.get_data_api import get_data
 
-#Se definene y nombran las funciones
+# Se definene y nombran las funciones
 def test_conexión_200():
-    #Conexión exitosa
+    # Conexión exitosa
     with patch('requests.get') as mock_get:
         mock_get.return_value.status_code = 200
         mock_get.return_value.json.return_value = {'data': 'mocked data'}
@@ -17,7 +16,7 @@ def test_conexión_200():
         mock_get.assert_called_once()
 
 def test_conexión_400():
-    #Conexión sin éxito, bad request
+    # Conexión sin éxito, bad request
     with patch('requests.get') as mock_get:
         mock_get.return_value.status_code = 400
         
@@ -30,7 +29,7 @@ def test_conexión_400():
         mock_get.assert_called_once()
 
 def test_conexión_401():
-    #Conexión sin éxito, clave incorrecta
+    # Conexión sin éxito, clave incorrecta
     with patch('requests.get') as mock_get:
         mock_get.return_value.status_code = 401
         
