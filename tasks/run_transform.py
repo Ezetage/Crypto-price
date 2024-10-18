@@ -1,6 +1,5 @@
 import os
 import sys
-import logging
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from transform.convertion_parquet import generar_dataframe_dim, generar_dataframe_facts
 
@@ -15,13 +14,6 @@ def run_transform(**kwargs):
     # Se guardan ambos df en XCom
     kwargs['ti'].xcom_push(key='transformed_df_dim', value=transformed_df_dim)
     kwargs['ti'].xcom_push(key='transformed_df_fact', value=transformed_df_fact)
-    
-    # Configura el logger
-    logging.basicConfig(level=logging.INFO)
-    
-    # Log de las tablas transformadas
-    logging.info("Tabla Dimensiones (transformed_df_dim):\n%s", transformed_df_dim.head())
-    logging.info("Tabla Hechos (transformed_df_fact):\n%s", transformed_df_fact.head())
     
     # Se convierten los df a .parquet
     transformed_df_dim.to_parquet('dimention_data.parquet')
