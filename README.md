@@ -58,6 +58,8 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 
 ### Archivos de configuración:
 
+   - *Crypto Price:*
+
       - *README.md:* Documento principal que describe el propósito del proyecto, las herramientas utilizadas, la arquitectura general y las instrucciones necesarias para la instalación, configuración y ejecución del proyecto.
 
       - *requirements.txt:* Archivo que especifica las dependencias de Python necesarias para el correcto funcionamiento del proyecto. Incluye las versiones de las bibliotecas utilizadas, tales como Pandas, SQLAlchemy, requests, entre otras. Este archivo facilita la instalación de dependencias mediante pip.
@@ -69,3 +71,29 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 ## Modelado de datos:
 
 ![modelado](https://github.com/user-attachments/assets/32ebfb18-fc56-419c-9c3d-baa5de53e61c)
+
+## Run Crypto Price:
+
+1. Instalacion:
+- Docker
+- Airflow
+- Python
+
+2. Clonar repositorio:
+    ```bash
+    git clone https://github.com/Ezetage/Crypto-price.git
+    ```
+
+3. Configurar variables de entorno:
+
+- Crear un archivo .env con las siguientes variables:
+```bash
+AIRFLOW_UID=50000
+API_KEY=API KEY CoinGecko
+REDSHIFT_USERNAME=Usuario de Redshift
+REDSHIFT_PASSWORD=Contraseña de Redshift
+REDSHIFT_HOST=Host Redshift
+REDSHIFT_PORT=5439
+REDSHIFT_DB=Nombre de la base de datos de Redshift
+REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
+```
