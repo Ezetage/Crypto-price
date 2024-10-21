@@ -2,8 +2,9 @@
 
 Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo real de las 50 criptomonedas con mayor capitalización de mercado, para la injesta de datos se utilizo la API de la plataforma CoinGecko y Python es el lenguaje de programación seleccionado para procesar los datos y gestionarlos con otras tecnologías.
 
-## Tecnologías:
+## Tecnologías y herramientas:
 
+- Python: Lenguaje de programación seleccionado para el procesamiento de los datos y su gestión.
 - Apache Airflow: Para la planificación y automatización de las tareas.
 - Docker: Para contenerizar el proyecto y asegurar su correcta ejecución en diferentes entornos.
 - Redshift: Para almacenar y consultar grandes volúmenes de datos relacionados con el mercado de criptomonedas.
@@ -50,7 +51,7 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 
 ### Tests unitarios:
 
-   - *Testing:* Creación de tests unitarios que verifican la funcionalidad de las funciones de manera individual, utilizando `Pytest` y `Mocking`.
+   - *Testing:* Creación de tests unitarios que verifican la funcionalidad de las funciones de manera individual, utilizando `Pytest` y `Mock`.
 
       - `count_columns`: Script auxiliar que cuenta las columnas del dataframe fact
       - `test_conteo_columnas`: Verifica que el valor de `count_columns` sea siempre igual a un valor esperado, en este caso = 5, ya que efectivamente estas son la cantidad de columnas que debe de traer el df fact, si difiere, el test fallará y nos dará a conocer que algo anda mal en la creación de dicho dataframe.
@@ -70,6 +71,9 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 
 ## Modelado de datos:
 
+Cuenta con una Tabla de Hechos, otra de Dimensiones y una de Calendario.
+Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, nos aseguramos de que a la hora de querer analizar los datos, sea sencillo y eficaz.
+
 ![modelado](https://github.com/user-attachments/assets/32ebfb18-fc56-419c-9c3d-baa5de53e61c)
 
 ## Run Crypto Price:
@@ -84,16 +88,53 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
     git clone https://github.com/Ezetage/Crypto-price.git
     ```
 
-3. Configurar variables de entorno:
+3. Creación de entorno virtual: No es necesaria la ejecución con el entorno virtual activado pero si recomendado.
+    ```bash
+    Python -m venv env
+    comando para activar entorno virtual: activate
+    comando para desactivar entorno virtual: deactivate
+    ```
 
-- Crear un archivo .env con las siguientes variables:
-```bash
-AIRFLOW_UID=50000
-API_KEY=API KEY CoinGecko
-REDSHIFT_USERNAME=Usuario de Redshift
-REDSHIFT_PASSWORD=Contraseña de Redshift
-REDSHIFT_HOST=Host Redshift
-REDSHIFT_PORT=5439
-REDSHIFT_DB=Nombre de la base de datos de Redshift
-REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
-```
+4. Instalación de dependencias:
+    ```bash
+   pip install -r requirements.txt
+    ```
+
+5. Teniendo instalado y abierto Docker desktop:
+
+- Creamos el contenedor y la imagen:
+       ```bash
+   docker-compose build
+    ```
+- Damos de alta el servidor: Con el primer comando (recomendado) no se verán los logs por terminal.
+
+       ```bash
+   docker-compose up -d
+   docker-compose up
+    ```
+
+6. Si todo anduvo bien, habremos deployado Airflow con Docker. Verificamos la conexión a Airflow accediendo a su web service:
+
+- http://localhost:8080/ 
+- Usuario predeterminado: airflow
+- Contraseña predeterminada: airflow
+
+7. Configurar variables de entorno:
+
+- Antes de correr cualquier Script, crear un archivo .env con las siguientes variables:
+      ```bash
+      AIRFLOW_UID=50000
+      API_KEY=API KEY CoinGecko
+      REDSHIFT_USERNAME=Usuario de Redshift
+      REDSHIFT_PASSWORD=Contraseña de Redshift
+      REDSHIFT_HOST=Host de Redshift
+      REDSHIFT_PORT=Puerto de la base de datos
+      REDSHIFT_DB=Nombre de la base de datos de Redshift
+      REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
+      ```
+
+8. Githubs Secrets:
+
+- Los Tests unitarios corren en cada Push y Pull request, configurado en el run.tests.yml de la carpeta github workflows
+
+Para esto es necesario definir Secrets en el perfil de Github con la API KEY de CoinGecko
