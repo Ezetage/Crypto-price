@@ -103,12 +103,12 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 5. Teniendo instalado y abierto Docker desktop:
 
 - Creamos el contenedor y la imagen:
-       ```bash
+   ```bash
    docker-compose build
     ```
 - Damos de alta el servidor: Con el primer comando (recomendado) no se verán los logs por terminal.
 
-       ```bash
+   ```bash
    docker-compose up -d
    docker-compose up
     ```
@@ -122,16 +122,17 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 7. Configurar variables de entorno:
 
 - Antes de correr cualquier Script, crear un archivo .env con las siguientes variables:
-      ```bash
-      AIRFLOW_UID=50000
-      API_KEY=API KEY CoinGecko
-      REDSHIFT_USERNAME=Usuario de Redshift
-      REDSHIFT_PASSWORD=Contraseña de Redshift
-      REDSHIFT_HOST=Host de Redshift
-      REDSHIFT_PORT=Puerto de la base de datos
-      REDSHIFT_DB=Nombre de la base de datos de Redshift
-      REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
-      ```
+
+   ```bash
+   AIRFLOW_UID=50000
+   API_KEY=API KEY CoinGecko
+   REDSHIFT_USERNAME=Usuario de Redshift
+   REDSHIFT_PASSWORD=Contraseña de Redshift
+   REDSHIFT_HOST=Host de Redshift
+   REDSHIFT_PORT=Puerto de la base de datos
+   REDSHIFT_DB=Nombre de la base de datos de Redshift
+   REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
+   ```
 
 8. Githubs Secrets:
 
