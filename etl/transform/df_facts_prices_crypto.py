@@ -13,7 +13,7 @@ def generar_dataframe_facts():
     Genera un DataFrame que contiene las columnas de hechos a partir de los datos obtenidos de la API.
 
     - Carga la API KEY desde el archivo .env.
-    - Solicita los datos de la API usando la API KEY.
+    - Solicita los datos a la API utilizando la API KEY.
     - Filtra las columnas 'id', 'last_updated', 'current_price', 'market_cap' y 'market_cap_rank' para formar el DataFrame de hechos.
 
     Returns:

@@ -63,19 +63,19 @@ def run_load_parquet_redshift():
     """
 
     try:
-        engine, schema = create_redshift_engine()
+        engine, REDSHIFT_SCHEMA = create_redshift_engine()
         if engine is None:
             return
         
         # Se verifica si la tabla calendario tiene datos, si tiene datos, no se cargará nada, si no tiene, se cargarán los datos del calendar_table.parquet en la misma
-        if table_is_empty(engine, 'calendar_table', schema):
-            load_parquet_redshift('calendar_table.parquet', 'calendar_table', engine, schema, if_exists='append')
+        if table_is_empty(engine, 'calendar_table', REDSHIFT_SCHEMA):
+            load_parquet_redshift('calendar_table.parquet', 'calendar_table', engine, REDSHIFT_SCHEMA, if_exists='append')
             print("Datos cargados en la tabla calendario.")
         else:
             print("La tabla calendario ya tiene datos. No se realizará ninguna carga.")
 
-        load_parquet_redshift('dimention_data.parquet', 'dimention_table', engine, schema, if_exists='replace')
-        load_parquet_redshift('fact_data.parquet', 'fact_table', engine, schema, if_exists='append')
+        load_parquet_redshift('dimension_table.parquet', 'dimension_table', engine, REDSHIFT_SCHEMA, if_exists='replace')
+        load_parquet_redshift('fact_table.parquet', 'fact_table', engine, REDSHIFT_SCHEMA, if_exists='append')
 
     except Exception as e:
         print(f"Error en el proceso principal: {e}")

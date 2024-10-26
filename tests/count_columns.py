@@ -4,7 +4,7 @@ import sys
 # Se añade el directorio padre al sys.path para permitir la importación de los módulos necesarios
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from transform.df_facts_prices_crypto import generar_dataframe_facts
+from etl.transform.df_facts_prices_crypto import generar_dataframe_facts
 
 # Se define y nombra la función
 def conteo_columnas(df):

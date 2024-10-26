@@ -5,7 +5,7 @@ import sys
 # Se añade el directorio padre al sys.path para permitir la importación de los módulos necesarios
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from testing.count_columns import cantidad_de_columnas
+from tests.count_columns import cantidad_de_columnas
 
 # Se llama al dataframe ya generado e importado
 def test_conteo_columnas():

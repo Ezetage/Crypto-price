@@ -4,7 +4,7 @@ import sys
 # Se añade el directorio padre al sys.path para permitir la importación de los módulos necesarios
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from extract.get_data_api import get_data
+from etl.extract.get_data_api import get_data
 
 def run_extract(**kwargs):
     """

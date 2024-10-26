@@ -40,7 +40,7 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
       - `run_extract.py`: Script donde se define la tarea de Extracción y guarda dichos datos en XCom
       - `run_transform.py`: Script donde se define la tarea de Transformación y guarda dichos datos en XCom
       - `run_load.py`: Script donde se define la tarea de Carga y guarda dichos datos en XCom
-      - `run_update.py`: Script donde se define una tarea adicional que actualiza los datos de las columnas de *Date* y *Time* generadas en la *fact_table* en la base de datos
+      - `run_update.py`: Script donde se define una tarea adicional que agrega dos columnas llamadas *date_column* y *time_column* a la *fact_table* y las actualiza
 
    - *Dags:* Orquesta la ejecución de las tareas en un flujo de trabajo definido en Airflow. Organiza las tareas de manera secuencial y dependiente, automatizando todo el proceso de extracción, transformación y carga de datos.
 
@@ -79,9 +79,9 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 ## Run Crypto Price:
 
 1. Instalacion:
-- Docker
-- Airflow
-- Python
+- Docker --> https://www.docker.com/products/docker-desktop/
+- Airflow --> https://airflow.apache.org/
+- Python --> https://www.python.org/downloads/
 
 2. Clonar repositorio:
     ```bash
@@ -91,7 +91,7 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 3. Creación de entorno virtual: No es necesaria la ejecución con el entorno virtual activado pero si recomendado.
     ```bash
     Python -m venv env
-    comando para activar entorno virtual: activate
+    comando para activar entorno virtual: .\env\Scripts\Activate
     comando para desactivar entorno virtual: deactivate
     ```
 
@@ -134,8 +134,15 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
    REDSHIFT_SCHEMA=Esquema dentro de la base de datos Redshift
    ```
 
-8. Githubs Secrets:
+8. Tests:
 
-- Los Tests unitarios corren en cada Push y Pull request, configurado en el run.tests.yml de la carpeta github workflows
+- Para ejecutar los tests en forma local, correr el comando:
+   ```bash
+   pytest -v
+   ```
+   
+- Configuración de Github Secrets:
+
+Los Tests unitarios corren en cada Push y Pull request, configurado en el run.tests.yml de la carpeta github workflows
 
 Para esto es necesario definir Secrets en el perfil de Github con la API KEY de CoinGecko

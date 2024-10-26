@@ -36,18 +36,18 @@ def run_convertion_parquet():
     try:
 
         df_facts = generar_dataframe_facts()
-        guardar_parquet(df_facts, "fact_data.parquet")
-        print("Datos de hechos guardados en 'fact_data.parquet'")
+        guardar_parquet(df_facts, "fact_table.parquet")
+        print("Datos de hechos guardados en 'fact_table.parquet'")
 
         df_dim = generar_dataframe_dim()
-        guardar_parquet(df_dim, "dimention_data.parquet")
-        print("Datos de dimensiones guardados en 'dimention_data.parquet'")
+        guardar_parquet(df_dim, "dimension_table.parquet")
+        print("Datos de dimensiones guardados en 'dimention_table.parquet'")
 
         df_calendar = calendar_table()
         guardar_parquet(df_calendar, "calendar_table.parquet")
         print("Tabla calendario guardada en calendar_table.parquet")
         
-        return df_dim, df_dim, df_calendar
+        return df_facts, df_dim, df_calendar
 
     except Exception as e:
         print(f"Error en la conversión: {e}")
