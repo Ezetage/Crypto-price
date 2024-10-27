@@ -32,6 +32,23 @@ def load_parquet_redshift(parquet_file: str, table_name: str, redshift_engine, s
         print(f"Error al cargar {parquet_file} en Redshift: {str(e)}")
         raise
 
+def truncate_table(engine, table_name: str, schema: str):
+    """
+    Trunca una tabla en Redshift.
+
+    Args:
+        engine: Motor de conexión a Redshift.
+        table_name (str): Nombre de la tabla a truncar.
+        schema (str): Esquema donde se encuentra la tabla.
+
+    Raises:
+        Exception: Si ocurre algún error durante el truncado de la tabla.
+    """
+    
+    with engine.connect() as connection:
+        connection.execute(f'TRUNCATE TABLE "{schema}"."{table_name}"')
+    print(f"Tabla '{table_name}' truncada exitosamente.")
+
 def table_is_empty(engine, table_name: str, schema: str) -> bool:
     """
     Verifica si una tabla está vacía en Redshift.
@@ -50,13 +67,13 @@ def table_is_empty(engine, table_name: str, schema: str) -> bool:
         count = result.scalar()
         return count == 0  # Devuelve True si la tabla está vacía
 
-# Se ejecuta el flujo de carga de las tablas a redshift
+# Se ejecuta el flujo de carga de las tablas a Redshift
 def run_load_parquet_redshift():
     """
     Ejecuta la carga de archivos .parquet a las tablas de Redshift.
 
     Se conecta a Redshift usando el motor y carga los archivos .parquet en las
-    tablas correspondientes ('dimention_table', 'fact_table' y 'calendar_table' si está vacía).
+    tablas correspondientes ('dimension_table', 'fact_table' y 'calendar_table' si está vacía).
     
     Raises:
         Exception: Si ocurre algún error en el proceso de carga de las tablas.
@@ -74,7 +91,8 @@ def run_load_parquet_redshift():
         else:
             print("La tabla calendario ya tiene datos. No se realizará ninguna carga.")
 
-        load_parquet_redshift('dimension_table.parquet', 'dimension_table', engine, REDSHIFT_SCHEMA, if_exists='replace')
+        truncate_table(engine, 'dimension_table', REDSHIFT_SCHEMA)
+        load_parquet_redshift('dimension_table.parquet', 'dimension_table', engine, REDSHIFT_SCHEMA, if_exists='append')
         load_parquet_redshift('fact_table.parquet', 'fact_table', engine, REDSHIFT_SCHEMA, if_exists='append')
 
     except Exception as e:
