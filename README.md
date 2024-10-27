@@ -51,7 +51,7 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 
 ### Tests unitarios:
 
-   - *Testing:* Creación de tests unitarios que verifican la funcionalidad de las funciones de manera individual, utilizando `Pytest` y `Mock`.
+   - *Tests:* Creación de tests unitarios que verifican la funcionalidad de las funciones de manera individual, utilizando `Pytest` y `Mock`.
 
       - `count_columns`: Script auxiliar que cuenta las columnas del dataframe fact
       - `test_conteo_columnas`: Verifica que el valor de `count_columns` sea siempre igual a un valor esperado, en este caso = 5, ya que efectivamente estas son la cantidad de columnas que debe de traer el df fact, si difiere, el test fallará y nos dará a conocer que algo anda mal en la creación de dicho dataframe.
@@ -67,7 +67,7 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 
       - *docker-compose.yml:* Define los servicios de Docker para el despliegue del entorno completo del proyecto. Especifica los contenedores que deben ejecutarse (como Airflow, Redis, PostgreSQL/Redshift) y sus configuraciones. Permite la orquestación de múltiples contenedores para asegurar la correcta ejecución del pipeline.
 
-      - *dockerfile:* Archivo utilizado para crear una imagen Docker personalizada del proyecto. Define las instrucciones para instalar las dependencias y configurar el entorno dentro del contenedor, garantizando que el entorno de desarrollo sea consistente en diferentes máquinas.
+      - *Dockerfile:* Archivo utilizado para crear una imagen Docker personalizada del proyecto. Define las instrucciones para instalar las dependencias y configurar el entorno dentro del contenedor, garantizando que el entorno de desarrollo sea consistente en diferentes máquinas.
 
 ## Modelado de datos:
 
