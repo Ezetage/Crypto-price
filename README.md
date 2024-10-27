@@ -79,11 +79,19 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 ## Run Crypto Price:
 
 1. Instalacion:
-- Docker --> https://www.docker.com/products/docker-desktop/
-- Airflow --> https://airflow.apache.org/
-- Python --> https://www.python.org/downloads/
+- Python (Necesario) --> https://www.python.org/downloads/
+- Docker (Necesario) --> https://www.docker.com/products/docker-desktop/
+- Git (Necesario) --> https://git-scm.com/
+- Airflow (No es estrictamente necesario) --> https://airflow.apache.org/ - Como deployaremos Airflow en un contenedor de Docker, no es necesario instalarlo localmente para ejecutar la solución.
 
-2. Clonar repositorio:
+2. Descargar proyecto:
+
+- Abrir la Terminal, línea de comandos CMD o Git bash
+- Navegar a la carpeta deseada
+   ```bash
+   cd ruta/a/tu/carpeta
+   ```
+- Clonar repositorio:
     ```bash
     git clone https://github.com/Ezetage/Crypto-price.git
     ```
