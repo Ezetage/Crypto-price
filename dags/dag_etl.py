@@ -30,6 +30,7 @@ with DAG(
     description='DAG para la ejecución de tareas en forma secuencial, donde se extraerán los datos, se transformarán, se cargaran a la base de datos de Redshift (ETL) y se actualizarán las nuevas columnas creadas de date y time llamando a la función run_update',
     schedule="59 23 * * *", # Se programa la ejecución utilizando una expresión CRON, en este caso, el flujo se ejecutará todos los días a las 23:59 hs
     catchup=False,
+    max_active_runs=1,
 ) as dag:
 
     # Tarea para extraer los datos
