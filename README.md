@@ -87,16 +87,21 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 2. Descargar proyecto:
 
 - Abrir la Terminal, línea de comandos CMD o Git bash
+
 - Navegar a la carpeta deseada
+
    ```bash
    cd ruta/a/tu/carpeta
    ```
+
 - Clonar repositorio:
+
     ```bash
     git clone https://github.com/Ezetage/Crypto-price.git
     ```
 
 3. Creación de entorno virtual: No es necesaria la ejecución con el entorno virtual activado pero si recomendado.
+
     ```bash
     Python -m venv env
     comando para activar entorno virtual: .\env\Scripts\Activate
@@ -104,6 +109,7 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
     ```
 
 4. Instalación de dependencias:
+
     ```bash
    pip install -r requirements.txt
     ```
@@ -111,6 +117,7 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 5. Teniendo instalado y abierto Docker desktop:
 
 - Creamos el contenedor y la imagen:
+
    ```bash
    docker-compose build
     ```
@@ -145,10 +152,13 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 8. Tests:
 
 - Para ejecutar los tests en forma local, correr el comando:
+
    ```bash
    pytest -v
    ```
-   
+
+En el caso de querer simular fallos, se puede modificar la API KEY por una errónea en el *.env* o modificar el número de *cantidad_columnas_esperada* de la función *tes_conteo_columnas* por cualquier otro, guardar y volver a ejecutar.
+
 - Configuración de Github Secrets:
 
 Los Tests unitarios corren en cada Push y Pull request, configurado en el run.tests.yml de la carpeta github workflows
