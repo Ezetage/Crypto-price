@@ -166,7 +166,7 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
    pytest -v
    ```
 
-En el caso de querer simular fallos, se puede modificar la API KEY por una errónea en el *.env* o modificar el número de *cantidad_columnas_esperada* de la función *tes_conteo_columnas* por cualquier otro, guardar y volver a ejecutar.
+En el caso de querer simular fallos, se puede modificar la API KEY por una errónea en el *.env* o modificar el número de *cantidad_columnas_esperada* de la función *test_conteo_columnas* por cualquier otro, guardar y volver a ejecutar.
 
 - Configuración de Github Secrets:
 
