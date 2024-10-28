@@ -7,10 +7,12 @@ Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo r
 - Python: Lenguaje de programación seleccionado para el procesamiento de los datos y su gestión.
 - Apache Airflow: Para la planificación y automatización de las tareas.
 - Docker: Para contenerizar el proyecto y asegurar su correcta ejecución en diferentes entornos.
-- Redshift: Para almacenar y consultar grandes volúmenes de datos relacionados con el mercado de criptomonedas.
+- Redshift: Para almacenar y consultar grandes volúmenes de datos.
 - Pandas: Para el procesamiento y análisis de datos.
 - Archivos Parquet: Para el almacenamiento eficiente de grandes volúmenes de datos.
 - SQLAlchemy: Para manejar la conexión y gestión de la base de datos Redshift.
+- Visual Studio Code: Editor de código fuente utilizado para la edición, depuración y gestión del proyecto, con soporte para extensiones que optimizan el flujo de desarrollo.
+- Git: Para el control de versiones del código, facilitando la colaboración, seguimiento de cambios y la integración con repositorios remotos.
 
 ## Arquitectura del proyecto:
 
@@ -82,6 +84,7 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 - Python (Necesario) --> https://www.python.org/downloads/
 - Docker (Necesario) --> https://www.docker.com/products/docker-desktop/
 - Git (Necesario) --> https://git-scm.com/
+- VS Code (Necesario) --> https://code.visualstudio.com/Download
 - Airflow (No es estrictamente necesario) --> https://airflow.apache.org/ - Como deployaremos Airflow en un contenedor de Docker, no es necesario instalarlo localmente para ejecutar la solución.
 
 2. Descargar proyecto:
@@ -101,6 +104,12 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
     ```
 
 3. Creación de entorno virtual: No es necesaria la ejecución con el entorno virtual activado pero si recomendado.
+
+- Como principal, debemos abrir el proyecto en el editor de código Visual Studio Code, podremos pararnos sobre la carpeta del proyecto, click secundario, *abrir con visual studio code*.
+
+- Una vez hecho esto, debemos abrir una terminal, *barra superior lado izquierdo -> Terminal -> Nueva terminal*.
+
+- En este punto ya estaremos en condiciones de empezar con las instalaciones necesarias, preparando asi el contexto completo para poder ejecutar la solución.
 
     ```bash
     Python -m venv env
