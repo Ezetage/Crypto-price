@@ -105,11 +105,13 @@ Con este modelado, donde sus Primary Keys y Foreing keys están bien definidas, 
 
 3. Creación de entorno virtual: No es necesaria la ejecución con el entorno virtual activado pero si recomendado.
 
-- Como principal, debemos abrir el proyecto en el editor de código Visual Studio Code, *Barra superior margen izquierdo -> Archivo -> Abrir carpeta -> Seleccionar carpeta del proyecto y abrir*.
+- Como principal, debemos abrir el proyecto en el editor de código Visual Studio Code. Dentro de VSC, *Barra superior margen izquierdo -> Archivo -> Abrir carpeta -> Seleccionar carpeta del proyecto y abrir*.
 
 - Una vez hecho esto, debemos abrir una terminal, *Barra superior margen izquierdo -> Terminal -> Nueva terminal*.
 
 - En este punto ya estaremos en condiciones de empezar con las instalaciones necesarias, preparando asi el contexto completo para poder ejecutar la solución.
+
+- Instalación del entorno virtual:
 
     ```bash
     Python -m venv env
