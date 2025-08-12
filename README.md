@@ -1,6 +1,6 @@
 # Crypto-price:
 
-Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo real de las 50 criptomonedas con mayor capitalización de mercado, para la injesta de datos se utilizo la API de la plataforma CoinGecko y Python es el lenguaje de programación seleccionado para procesar los datos y gestionarlos con otras tecnologías.
+Este proyecto esta diseñado para realizar el seguimiento del precio en tiempo real de las 50 criptomonedas con mayor capitalización de mercado, para la ingesta de datos se utilizo la API de la plataforma CoinGecko y Python es el lenguaje de programación seleccionado para procesar los datos y gestionarlos con otras tecnologías.
 
 ## Tecnologías y herramientas:
 
